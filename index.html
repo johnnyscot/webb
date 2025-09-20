@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRODUCTOS EN STOCK</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #1a1a1a, #2d2d2d);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      border-bottom: 2px solid #444;
+      z-index: 1000;
+    }
+
+    /* Buscador */
+    .buscador {
+      margin: 15px;
+      display: flex;
+      justify-content: center;
+    }
+    .buscador input {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 40px 12px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: #333;
+      color: #fff;
+      outline: none;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+    }
+    .buscador::after {
+      content: "🔍";
+      position: relative;
+      right: 35px;
+      top: 10px;
+      color: #888;
+      font-size: 18px;
+    }
+
+    /* Categorías */
+    .categorias {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px;
+      gap: 10px;
+      scrollbar-width: none;
+    }
+    .categorias::-webkit-scrollbar {
+      display: none;
+    }
+    .categorias button {
+      flex: none;
+      padding: 10px 18px;
+      border: none;
+      background: linear-gradient(135deg, #5a00c6, #00d4ff);
+      color: #fff;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .categorias button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #00d4ff, #5a00c6);
+    }
+
+    /* Categoría Título */
+    .categoria {
+      margin: 20px 10px;
+    }
+    .categoria h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      padding-left: 5px;
+      border-left: 4px solid #00d4ff;
+    }
+
+    /* Grid Productos */
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    /* Tarjetas */
+    .producto {
+      background: #222;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    }
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 212, 255, 0.5);
+    }
+    .producto img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .oculto {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>PRODUCTOS EN STOCK DEL SPOT</header>
+
+  <!-- Buscador -->
+  <div class="buscador">
+    <input type="text" id="buscador" placeholder="BUSCAR PRODUCTO...">
+  </div>
+
+  <!-- Categorías -->
+  <div class="categorias">
+    <button onclick="mostrarCategoria('todos')">TODOS</button>
+    <button onclick="mostrarCategoria('desechables')">DESECHABLES</button>
+    <button onclick="mostrarCategoria('equipos')">EQUIPOS</button>
+    <button onclick="mostrarCategoria('vizzel')">VIZZEL</button>
+     <button onclick="mostrarCategoria('liquidos')">LIQUIDOS</button>
+  </div>
+
+  <!-- Categoría: Desechables -->
+  <div class="categoria" data-categoria="desechables">
+    <h2>DESECHABLES</h2>
+    <div class="productos">
+      <div class="producto"><img src="icymint.png"><div>WAKA ICE BLAST ICY MINT</div></div>
+      <div class="producto"><img src="strawberrywa.png"><div>WAKA ICE BLAST STRAWBERRY WATERMELON</div></div>
+      <div class="producto"><img src="bluerazz.png"><div>WAKA ICE BLAST BLUE RAZZ</div></div>
+      <div class="producto"><img src="watermelon.png"><div>WAKA ICE BLAST WATERMELON CHILL</div></div>
+      <div class="producto"><img src="sourapple.png"><div>SWFT ICON SOUR APPLE</div></div>
+      <div class="producto"><img src="bluerazz.png"><div>SWFT ICON BLUEN RAZZ BERRY ICE</div></div>
+      <div class="producto"><img src="roll.png"><div>SWFT ICON STRAWBERRY ROLL UP</div></div>
+      <div class="producto"><img src="papito.png"><div>NOTA75 PAPITO</div></div>
+      <div class="producto"><img src="homgo.png"><div>NOTA75 HONGUITO</div></div>
+      <div class="producto"><img src="xtreme.png"><div>NOTA75 BUBALOO XTREME ICE</div></div>
+      <div class="producto"><img src="42.png"><div>NOTA75 LA 42</div></div>
+      <div class="producto"><img src="16.png"><div>IGET STRAWBERRY KIWI</div></div>
+      <div class="producto"><img src="15.png"><div>IGET STRAWBERRY WATERMELON</div></div>
+      <div class="producto"><img src="1.png"><div>IGET WATERMELON BLUEBERRY</div></div>
+      <div class="producto"><img src="7.png"><div>IGET CHERRY POMEGRANATE</div></div>
+      <div class="producto"><img src="20.png"><div>IGET DOUBLE APPLE</div></div>
+      <div class="producto"><img src="8.png"><div>IGET BLACKBERRY POMEGRANATE CHERRY ICE</div></div>
+    </div>
+  </div>
+
+  <!-- Categoría: Equipos -->
+  <div class="categoria" data-categoria="equipos">
+    <h2>EQUIPOS</h2>
+    <div class="productos">
+      <div class="producto"><img src="pava.png"><div>PAVA HORIZ ULTRA</div></div>
+      <div class="producto"><img src="vmatei2.png"><div>VMATE I2</div></div>
+      <div class="producto"><img src="SONDERU.png"><div>SONDER U</div></div>
+    </div>
+  </div>
+
+  <!-- Categoría: Vizzel -->
+  <div class="categoria" data-categoria="vizzel">
+    <h2>VIZZEL</h2>
+    <div class="productos">
+      <div class="producto"><img src="viblue.png"><div>BLUE RAZZ PEACH ICE</div></div>
+      <div class="producto"><img src="viclear.png"><div>CLEAR</div></div>
+      <div class="producto"><img src="vipeach.png"><div>PEACH ICE</div></div>
+      <div class="producto"><img src="vicoco.png"><div>COCONUT AQUA</div></div>
+      <div class="producto"><img src="vimango.png"><div>MANGO PINEAPPLE</div></div>
+      <div class="producto"><img src="vikiwi.png"><div>KIWI PASSIONFRUIT GUAVA</div></div>
+      <div class="producto"><img src="vigrap.png"><div>GRAPE ICE</div></div>
+      <div class="producto"><img src="viwa.png"><div>WATERMELON ICE</div></div>
+      <div class="producto"><img src="viblug.png"><div>BUBLEGUM</div></div>
+    </div>
+  </div>
+
+
+<!-- Categoría: LIQUIDOS -->
+  <div class="categoria" data-categoria="liquidos">
+  <h2>LIQUIDOS</h2>
+<div class="productos">
+
+  <!-- HQD -->
+  <div class="producto"><img src="hqdsky.png"><div>HQD ICY MINT</div></div>
+  <div class="producto"><img src="hqdstraw.png"><div>HQD STRAWBERRY BANANA</div></div>
+  <div class="producto"><img src="hqdblack.png"><div>HQD BLACK ICE</div></div>
+  <div class="producto"><img src="hqdsky.png"><div>HQD SKY MINT</div></div>
+
+  <!-- NOTA 75 -->
+  <div class="producto"><img src="notacabra.png"><div>NOTA75 LA CABRA</div></div>
+  <div class="producto"><img src="notauva.png"><div>NOTA75 UVA BOMBON</div></div>
+  <div class="producto"><img src="notasinga.png"><div>NOTA75 SINGAPUR</div></div>
+  <div class="producto"><img src="notabubaloo.png"><div>NOTA75 BUBALU XTREME ICE</div></div>
+  <div class="producto"><img src="notaformu.png"><div>NOTA75 LA FORMULA</div></div>
+  <div class="producto"><img src="notapablo.png"><div>NOTA75 PABLO ESCOBAR</div></div>
+  <div class="producto"><img src="notapera.png"><div>NOTA75 PEAR PEACH ICE</div></div>
+  <div class="producto"><img src="notagum.png"><div>NOTA75 BANANAGUM</div></div>
+  <div class="producto"><img src="notachapo.png"><div>NOTA75 CHAPO GUZMAN</div></div>
+  <div class="producto"><img src="notaminty.png"><div>NOTA75 MINTY LEMON ICE</div></div>
+
+  <!-- BETTA ICE -->
+  <div class="producto"><img src="bettaice809.png"><div>BETTA ICE 809</div></div>
+
+  <!-- UNIVERSALT -->
+  <div class="producto"><img src="univerneptuno.png"><div>UNIVERSALT NEPTUNO</div></div>
+  <div class="producto"><img src="univermercurio.png"><div>UNIVERSALT MERCURIO</div></div>
+  <div class="producto"><img src="univermarte.png"><div>UNIVERSALT MARTE</div></div>
+
+  <!-- VRK -->
+  <div class="producto"><img src="VRKjaraka.png"><div>VRK KIWI JARAKA</div></div>
+
+</div>
+
+  <script>
+    function mostrarCategoria(cat) {
+      let categorias = document.querySelectorAll('.categoria');
+      categorias.forEach(c => {
+        if (cat === 'todos' || c.dataset.categoria === cat) {
+          c.classList.remove('oculto');
+        } else {
+          c.classList.add('oculto');
+        }
+      });
+    }
+
+    // Buscador
+    document.getElementById('buscador').addEventListener('keyup', function() {
+      let filtro = this.value.toLowerCase();
+      let productos = document.querySelectorAll('.producto');
+      productos.forEach(p => {
+        if (p.textContent.toLowerCase().includes(filtro)) {
+          p.style.display = 'block';
+        } else {
+          p.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
